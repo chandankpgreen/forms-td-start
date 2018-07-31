@@ -28,7 +28,7 @@
           <p> Your reply is : {{ answer }}</p>
           <div class="radio" *ngFor="let g of genders">
             <label>
-              <input type="radio" name="gender" [value]="g" ngModel required>
+              <input type="radio" name="gender" [value]="g" [ngModel]="genValue" required>
             </label>
             <span>{{ g }}</span>
           </div>

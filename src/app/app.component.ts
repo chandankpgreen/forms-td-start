@@ -11,6 +11,7 @@ export class AppComponent {
   defaultQuestion = 'pet';
   answer = '';
   genders = ['male', 'female'];
+  genValue = "female";
   suggestUserName() {
     const suggestedName = 'Superuser';
     /// the onle below will reset all form values
