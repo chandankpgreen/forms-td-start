@@ -10,9 +10,25 @@ export class AppComponent {
   @ViewChild('f') signupForm: NgForm;
   defaultQuestion = 'pet';
   answer = '';
-  genders = ['male','female'];
+  genders = ['male', 'female'];
   suggestUserName() {
     const suggestedName = 'Superuser';
+    /// the onle below will reset all form values
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: ''
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: 'male'
+    // });
+    // the one below will just override specific values.
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   // onSubmit(form: NgForm) {
@@ -20,6 +36,6 @@ export class AppComponent {
   // }
 
   onSubmit() {
-      console.log(this.signupForm);
-    }
+    console.log(this.signupForm);
+  }
 }
