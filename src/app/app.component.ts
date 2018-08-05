@@ -12,6 +12,14 @@ export class AppComponent {
   answer = '';
   genders = ['male', 'female'];
   genValue = "female";
+  submitted: boolean = false;
+  user = {
+    username: '',
+    email: '',
+    sercretQuestion: '',
+    answer: '',
+    gender: '',
+  }
   suggestUserName() {
     const suggestedName = 'Superuser';
     /// the onle below will reset all form values
@@ -37,6 +45,13 @@ export class AppComponent {
   // }
 
   onSubmit() {
+    this.submitted = true;
     console.log(this.signupForm);
+    this.user.username = this.signupForm.form.value.userData.username;
+    this.user.email = this.signupForm.form.value.userData.email;
+    this.user.sercretQuestion = this.signupForm.form.value.sercret;
+    this.user.answer = this.signupForm.form.value.questionAnswer;
+    this.user.gender = this.signupForm.form.value.gender;
+    this.signupForm.reset();
   }
 }
